@@ -13,6 +13,9 @@ public class VoteSessionDTO {
     private Integer duration;
     private Date startDate;
     private Date endDate;
+    private Integer totalVote = 0;
+    private Integer totalYes = 0;
+    private Integer totalNo = 0;
 
     public VoteSessionDTO(Vote vote){
         this.duration = vote.getDuration();
@@ -29,6 +32,9 @@ public class VoteSessionDTO {
         this.startDate = voteSession.getStartDate();
         this.endDate = voteSession.getEndDate();
         this.duration = voteSession.getDuration();
+        this.totalVote = voteSession.getTotalVote();
+        this.totalNo = voteSession.getTotalNo();
+        this.totalYes = voteSession.getTotalYes();
     }
 
     public Long getId() {
@@ -69,5 +75,29 @@ public class VoteSessionDTO {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public Integer getTotalVote() {
+        return totalVote;
+    }
+
+    public void setTotalVote(Integer totalVote) {
+        this.totalVote = totalVote;
+    }
+
+    public Integer getTotalYes() {
+        return totalYes;
+    }
+
+    public void setTotalYes(Integer totalYes) {
+        this.totalYes = totalYes;
+    }
+
+    public Integer getTotalNo() {
+        return totalNo;
+    }
+
+    public void setTotalNo(Integer totalNo) {
+        this.totalNo = totalNo;
     }
 }

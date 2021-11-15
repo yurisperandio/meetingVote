@@ -1,5 +1,6 @@
 package br.com.meetingVote.controller;
 
+import br.com.meetingVote.dto.VoteResultDTO;
 import br.com.meetingVote.dto.VoteSessionDTO;
 import br.com.meetingVote.service.VoteSessionService;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,11 @@ public class VoteSessionController {
     @GetMapping("idItem/{idItem}")
     public VoteSessionDTO getSessionByIdItem(@PathVariable Long idItem){
         return voteSessionService.findByIdItem(idItem);
+    }
+
+    @GetMapping("result/{idSession}")
+    public VoteResultDTO result(@PathVariable Long idSession){
+        return voteSessionService.result(idSession);
     }
 
     @PostMapping("createSession")

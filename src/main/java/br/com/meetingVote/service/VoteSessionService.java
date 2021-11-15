@@ -10,7 +10,10 @@ public interface VoteSessionService {
     VoteSessionDTO findByIdItem(Long idItem);
     VoteSessionDTO findByIdSession(Long idSession);
     VoteSessionDTO createSession(VoteSessionDTO voteSessionDTO);
-    VoteSessionDTO findEndDateById(VoteSessionDTO voteSessionDTO);
+    VoteSessionDTO totalVote(Long idSession,VoteSessionDTO voteSessionDTO);
+    VoteSessionDTO totalYes(Long idSession,VoteSessionDTO voteSessionDTO);
+    VoteSessionDTO totalNo(Long idSession, VoteSessionDTO voteSessionDTO);
+    VoteResultDTO result(Long idSession);
     VoteSessionDTO updateSession(Long id, VoteSessionDTO voteSessionDTO);
 
 }

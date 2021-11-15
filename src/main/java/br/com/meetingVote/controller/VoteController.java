@@ -57,7 +57,13 @@ public class VoteController {
         if(newVoteDTO.getFlVote().equals("S") || newVoteDTO.getFlVote().equals("N")){
             if(!voteService.validateVote(newVoteDTO.getIdItem(), newVoteDTO.getIdPerson())){
                 if(voteSessionDTO.getEndDate().after(currentTime)){
+                    if(newVoteDTO.getFlVote().equals("S")){
+                        voteSessionService.totalYes(voteSessionDTO.getId(), voteSessionDTO);
+                    }else{
+                        voteSessionService.totalNo(voteSessionDTO.getId(), voteSessionDTO);
+                    }
                     VoteDTO voteDTO = voteService.createVote(newVoteDTO);
+                    voteSessionService.totalVote(voteSessionDTO.getId(), voteSessionDTO);
                     return new ResponseEntity<VoteDTO>(voteDTO, HttpStatus.CREATED);
                 }
 

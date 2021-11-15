@@ -1,8 +1,7 @@
 package br.com.meetingVote.service.impl;
 
-import br.com.meetingVote.dto.VoteDTO;
+import br.com.meetingVote.dto.VoteResultDTO;
 import br.com.meetingVote.dto.VoteSessionDTO;
-import br.com.meetingVote.model.Vote;
 import br.com.meetingVote.model.VoteSession;
 import br.com.meetingVote.repository.VoteSessionRepository;
 import br.com.meetingVote.service.ItemService;
@@ -66,6 +65,36 @@ public class VoteSessionServiceImpl implements VoteSessionService {
     }
 
     @Override
+    public VoteSessionDTO totalVote(Long idSession, VoteSessionDTO voteSessionDTO) {
+        VoteSession voteSession = voteSessionRepository.findByIdSession(idSession);
+        voteSession.setTotalVote(voteSession.getTotalVote()+1);
+        VoteSession voteSessionSaved = voteSessionRepository.save(voteSession);
+        return new VoteSessionDTO(voteSessionSaved);
+    }
+
+    @Override
+    public VoteSessionDTO totalYes(Long idSession, VoteSessionDTO voteSessionDTO) {
+        VoteSession voteSession = voteSessionRepository.findByIdSession(idSession);
+        voteSession.setTotalYes(voteSession.getTotalYes()+1);
+        VoteSession voteSessionSaved = voteSessionRepository.save(voteSession);
+        return new VoteSessionDTO(voteSessionSaved);
+    }
+
+    @Override
+    public VoteSessionDTO totalNo(Long idSession, VoteSessionDTO voteSessionDTO) {
+        VoteSession voteSession = voteSessionRepository.findByIdSession(idSession);
+        voteSession.setTotalNo(voteSession.getTotalNo()+1);
+        VoteSession voteSessionSaved = voteSessionRepository.save(voteSession);
+        return new VoteSessionDTO(voteSessionSaved);
+    }
+
+    @Override
+    public VoteResultDTO result(Long idSession) {
+        VoteSession voteSession = voteSessionRepository.findByIdSession(idSession);
+        return new VoteResultDTO(voteSession);
+    }
+
+    @Override
     public VoteSessionDTO updateSession(Long id, VoteSessionDTO voteSessionDTO) {
         VoteSession voteSession = voteSessionRepository.findByIdSession(id);
         voteSession.setDuration(voteSessionDTO.getDuration());
@@ -77,10 +106,6 @@ public class VoteSessionServiceImpl implements VoteSessionService {
     }
 
 
-    @Override
-    public VoteSessionDTO findEndDateById(VoteSessionDTO voteSessionDTO) {
-        return null;
-    }
 
 
 }

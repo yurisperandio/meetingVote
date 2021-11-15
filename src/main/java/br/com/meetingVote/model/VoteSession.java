@@ -1,5 +1,6 @@
 package br.com.meetingVote.model;
 
+import br.com.meetingVote.dto.VoteResultDTO;
 import br.com.meetingVote.dto.VoteSessionDTO;
 
 import javax.persistence.*;
@@ -20,12 +21,19 @@ public class VoteSession {
 
     private Long idItem;
 
-    public VoteSession(Long id, Date startDate, Integer duration, Date endDate, Long idItem) {
+    private Integer totalVote = 0;
+    private Integer totalYes = 0;
+    private Integer totalNo = 0;
+
+    public VoteSession(Long id, Date startDate, Integer duration, Date endDate, Long idItem, Integer totalVote,Integer totalYes,Integer totalNo) {
         this.id = id;
         this.startDate = startDate;
         this.duration = duration;
         this.endDate = endDate;
         this.idItem = idItem;
+        this.totalVote = totalVote;
+        this.totalYes = totalYes;
+        this.totalNo = totalNo;
     }
 
     public VoteSession(VoteSessionDTO voteSessionDTO){
@@ -38,6 +46,36 @@ public class VoteSession {
 
     public VoteSession(){
 
+    }
+    public VoteSession(VoteResultDTO voteResultDTO){
+        this.id = voteResultDTO.getIdSession();
+        this.totalVote = voteResultDTO.getTotalVote();
+        this.totalNo = voteResultDTO.getTotalNo();
+        this.totalYes = voteResultDTO.getTotalYes();
+    }
+
+    public Integer getTotalVote() {
+        return totalVote;
+    }
+
+    public void setTotalVote(Integer totalVote) {
+        this.totalVote = totalVote;
+    }
+
+    public Integer getTotalYes() {
+        return totalYes;
+    }
+
+    public void setTotalYes(Integer totalYes) {
+        this.totalYes = totalYes;
+    }
+
+    public Integer getTotalNo() {
+        return totalNo;
+    }
+
+    public void setTotalNo(Integer totalNo) {
+        this.totalNo = totalNo;
     }
 
     public Long getId() {

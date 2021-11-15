@@ -11,7 +11,6 @@ public interface PersonService {
     List<PersonDTO> getPerson();
     PersonDTO getPersonByCpf(String cpf);
     PersonDTO getPersonByName(String name);
-    String getCpfById(Long id);
     PersonDTO createPerson(NewPersonDTO newPersonDTO);
     PersonDTO updateName(Long id, PersonNameDTO PersonNameDTO);
     PersonDTO updateCpf(Long id, PersonCpfDTO PersonCpfDTO);

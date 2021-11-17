@@ -1,11 +1,7 @@
 package br.com.meetingVote.model;
 
 import br.com.meetingVote.dto.NewVoteDTO;
-import br.com.meetingVote.dto.VoteSessionDTO;
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "tb_vote")
@@ -19,21 +15,13 @@ public class Vote {
 
     private Long idItem;
 
-    private Date startDate;
-
-    private Integer duration;
-
-    private Date endDate;
-
     private String flVote;
 
-    public Vote(Long idPerson, Long idItem, Date startDate, Date endDate, Integer duration, String flVote) {
+    public Vote(Long id, Long idPerson, Long idItem, String flVote) {
         this.idPerson = idPerson;
         this.idItem = idItem;
         this.flVote = flVote;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.duration = duration;
+        this.id = id;
     }
 
     public Vote(){
@@ -44,16 +32,8 @@ public class Vote {
         this.idPerson = newVoteDTO.getIdPerson();
         this.idItem = newVoteDTO.getIdItem();
         this.flVote = newVoteDTO.getFlVote();
-        this.duration = newVoteDTO.getDuration();
-        this.startDate = newVoteDTO.getStartDate();
-        this.endDate = newVoteDTO.getEndDate();
     }
 
-    public Vote(VoteSessionDTO voteSessionDTO){
-        this.endDate = voteSessionDTO.getEndDate();
-        this.startDate = voteSessionDTO.getStartDate();
-        this.duration = voteSessionDTO.getDuration();
-    }
 
     public Long getId() {
         return id;
@@ -87,27 +67,4 @@ public class Vote {
         this.flVote = flVote;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
 }

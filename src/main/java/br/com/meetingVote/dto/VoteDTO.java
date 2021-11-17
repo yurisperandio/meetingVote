@@ -8,9 +8,6 @@ public class VoteDTO {
     private Long id;
     private Long idPerson;
     private Long idItem;
-    private Date startDate;
-    private Integer duration;
-    private Date endDate;
     private String flVote;
 
     public VoteDTO(Vote vote) {
@@ -18,9 +15,6 @@ public class VoteDTO {
         this.idPerson = vote.getIdPerson();
         this.idItem = vote.getIdItem();
         this.flVote = vote.getFlVote();
-        this.duration = vote.getDuration();
-        this.startDate = vote.getStartDate();
-        this.endDate = vote.getEndDate();
     }
 
     public Long getId() {
@@ -55,27 +49,5 @@ public class VoteDTO {
         this.flVote = flVote;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
 }

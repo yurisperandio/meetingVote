@@ -16,11 +16,11 @@ import java.util.TimeZone;
 public class MeetingVoteApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext configurableApplicationContext =
+		//ConfigurableApplicationContext configurableApplicationContext =
 				SpringApplication.run(MeetingVoteApplication.class, args);
-		PersonRepository personRepository = configurableApplicationContext.getBean(PersonRepository.class);
-		Person myPerson = new Person("Yuri", "40428170846");
-		personRepository.save(myPerson);
+		//PersonRepository personRepository = configurableApplicationContext.getBean(PersonRepository.class);
+		//Person myPerson = new Person("Yuri", "40428170846");
+		//personRepository.save(myPerson);
 	}
 
 

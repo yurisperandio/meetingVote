@@ -94,11 +94,9 @@ public class PersonServiceImpl implements PersonService {
             if (response.getStatusCode().is2xxSuccessful()) {
                 System.out.println("CPF VÁLIDO");
                 return true;
-            } else if (response.getStatusCode().is4xxClientError() || response.getStatusCode().is5xxServerError()) {
-                System.out.println("CPF INVÁLIDO");
             }
         }catch (Exception e){
-            System.out.println("CPF INVÁLIDO: "+e);
+            System.out.println("CPF INVÁLIDO: " + cpf + " " +e);
             return false;
         }
         return false;

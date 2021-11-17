@@ -16,13 +16,7 @@ public class VoteSessionDTO {
     private Integer totalVote = 0;
     private Integer totalYes = 0;
     private Integer totalNo = 0;
-
-    public VoteSessionDTO(Vote vote){
-        this.duration = vote.getDuration();
-        this.endDate = vote.getEndDate();
-        this.startDate = vote.getStartDate();
-        this.idItem = vote.getIdItem();
-    }
+    
 
     public VoteSessionDTO(){}
 

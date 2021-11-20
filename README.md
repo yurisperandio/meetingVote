@@ -6,7 +6,7 @@
 Para executar a aplicação localmente, é necessário possuir instalado e configurado os seguintes programas:
 
 - [Java JDK 11](https://adoptopenjdk.net/?variant=openjdk11&jvmVariant=hotspot)
-- [IDE Visual Studio Code](https://www.jetbrains.com/pt-br/idea/download/#section=windows) (Ou outra IDE de preferência)
+- [IDE IntelliJ](https://www.jetbrains.com/pt-br/idea/download/#section=windows) (Ou outra IDE de preferência)
 
 
 ## Código Fonte

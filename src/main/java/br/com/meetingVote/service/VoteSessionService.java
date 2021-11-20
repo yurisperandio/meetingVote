@@ -15,5 +15,6 @@ public interface VoteSessionService {
     VoteSessionDTO totalNo(Long idSession, VoteSessionDTO voteSessionDTO);
     VoteResultDTO result(Long idSession);
     VoteSessionDTO updateSession(Long id, VoteSessionDTO voteSessionDTO);
+    void deleteSession(Long id);
 
 }

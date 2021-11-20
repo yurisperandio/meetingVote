@@ -10,7 +10,7 @@ import java.util.List;
 public interface PersonService {
     List<PersonDTO> getPerson();
     PersonDTO getPersonByCpf(String cpf);
-    PersonDTO getPersonByName(String name);
+    List<PersonDTO> getPersonByName(String name);
     PersonDTO createPerson(NewPersonDTO newPersonDTO);
     PersonDTO updateName(Long id, PersonNameDTO PersonNameDTO);
     PersonDTO updateCpf(Long id, PersonCpfDTO PersonCpfDTO);

@@ -14,7 +14,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     Person findPersonByCpf(String cpf);
 
     @Query(value = "select p from Person p where p.name like :name")
-    Person findPersonByName(String name);
+    List<Person> findPersonByName(String name);
 
     @Query(value = "select p from Person p where p.id = :id")
     Person findPersonById(Long id);

@@ -1,12 +1,11 @@
 package br.com.meetingVote.dto;
 
-import br.com.meetingVote.model.Vote;
 import br.com.meetingVote.model.VoteSession;
 
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-public class VoteSessionDTO {
+public class VoteSessionDTO implements Serializable {
 
     private Long id;
     private Long idItem;

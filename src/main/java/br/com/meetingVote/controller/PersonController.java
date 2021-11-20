@@ -28,31 +28,31 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping(value = "/", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Retorna todas pessoas cadastrados")
     public List<PersonDTO> getAllPerson() {
         return personService.getPerson();
     }
 
-    @GetMapping("id/{id}")
+    @GetMapping(value ="id/{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Retorna pessoa por ID")
     public Person getPersonById(@PathVariable Long id) {
         return personRepository.findPersonById(id);
     }
 
-    @GetMapping("cpf/{cpf}")
+    @GetMapping(value ="cpf/{cpf}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Retorna pessoa por CPF")
     public PersonDTO getPersonByCpf(@PathVariable String cpf) {
         return personService.getPersonByCpf(cpf);
     }
 
-    @GetMapping("name/{name}")
+    @GetMapping(value ="name/{name}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Retorna pessoa por nome")
-    public PersonDTO getPersonByName(@PathVariable String name) {
+    public List<PersonDTO> getPersonByName(@PathVariable String name) {
         return personService.getPersonByName(name);
     }
 
-    @PostMapping
+    @PostMapping(produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Cria uma nova pessoa")
     public ResponseEntity<PersonDTO> createPerson(@RequestBody NewPersonDTO newPersonDTO) {
@@ -63,19 +63,19 @@ public class PersonController {
         return new ResponseEntity<PersonDTO>(personDTO, HttpStatus.CREATED);
     }
 
-    @PutMapping("{id}")
+    @PutMapping(value = "{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Atualiza o nome da pessoa")
     private PersonDTO updatePersonName(@PathVariable Long id, @RequestBody PersonNameDTO personNameDTO) {
         return personService.updateName(id, personNameDTO);
     }
 
-    @PatchMapping("{id}")
+    @PatchMapping(value = "{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Atualiza o CPF da pessoa")
     private PersonDTO updatePersonCpf(@PathVariable Long id, @RequestBody PersonCpfDTO personCpfDTO) {
         return personService.updateCpf(id, personCpfDTO);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping(value = "{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Deleta a pessoa, filtrando pelo ID")
     public void deletePerson(@PathVariable Long id) {
         personService.deletePerson(id);

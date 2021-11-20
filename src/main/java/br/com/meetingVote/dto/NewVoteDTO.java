@@ -1,8 +1,9 @@
 package br.com.meetingVote.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class NewVoteDTO {
+public class NewVoteDTO implements Serializable{
 
     private Long idPerson;
     private Long idItem;

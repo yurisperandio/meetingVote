@@ -105,7 +105,10 @@ public class VoteSessionServiceImpl implements VoteSessionService {
         return new VoteSessionDTO(voteSessionSaved);
     }
 
-
+    @Override
+    public void deleteSession(Long id) {
+        voteSessionRepository.deleteById(id);
+    }
 
 
 }

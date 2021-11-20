@@ -41,9 +41,10 @@ public class PersonServiceImpl implements PersonService {
 
 
     @Override
-    public PersonDTO getPersonByName(String name) {
-        Person person = personRepository.findPersonByName(name);
-        return new PersonDTO(person);
+    public List<PersonDTO> getPersonByName(String name) {
+        List<Person> personList;
+        personList =(List<Person>) personRepository.findPersonByName(name);
+        return personList.stream().map(PersonDTO::new).collect((Collectors.toList()));
     }
 
 
@@ -70,11 +71,6 @@ public class PersonServiceImpl implements PersonService {
 
     Person getPersonById(Long id) {
         return personRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
-    public String getCpfById(Long id){
-        String person = personRepository.findCpfById(id);
-        return person;
     }
 
 

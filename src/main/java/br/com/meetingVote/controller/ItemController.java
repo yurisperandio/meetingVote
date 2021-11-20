@@ -22,44 +22,44 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-    @GetMapping("/")
+    @GetMapping(value = "/", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Retorna todos itens cadastrados")
     public List<ItemDTO> getAllItem(){
         return itemService.getItem();
     }
 
-    @GetMapping("{id}")
+    @GetMapping(value = "{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Retorna item por ID")
     public ItemDTO getItemById(@PathVariable Long id){
         return itemService.getItemById(id);
     }
 
-    @GetMapping("{subject/{subject}")
+    @GetMapping(value = "{subject/{subject}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Retorna item pelo Assunto")
     public ItemDTO getItemBySubject(@PathVariable String subject){
         return itemService.getItemBySubject(subject);
     }
 
-    @PostMapping
+    @PostMapping(produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Cadastra novo item")
     public ItemDTO createItem (@RequestBody NewItemDTO newItemDTO){
         return itemService.createItem(newItemDTO);
     }
 
-    @PutMapping("{id}")
+    @PutMapping(value = "{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Atualiza o assunto do item cadastrado")
     public ItemDTO updateSubject(@PathVariable Long id, @RequestBody ItemSubjectDTO itemSubjectDTO){
         return itemService.updateSubject(id, itemSubjectDTO);
     }
 
-    @PatchMapping("{id}")
+    @PatchMapping(value = "{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Atualiza a descrição do item cadastrado")
     public ItemDTO updateDescription(@PathVariable Long id, @RequestBody ItemDescriptionDTO itemDescriptionDTO){
         return itemService.updateDescription(id, itemDescriptionDTO);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping(value = "{id}", produces = {"application/vnd.meetingVote.app-v1.0+json"})
     @ApiOperation(value = "Deleta um item, passando o ID como parâmetro")
     public void deleteItem(@PathVariable Long id){
         itemService.deleteItem(id);

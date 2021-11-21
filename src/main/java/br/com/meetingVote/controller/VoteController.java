@@ -72,14 +72,14 @@ public class VoteController {
             if (!voteService.validateVote(newVoteDTO.getIdItem(), newVoteDTO.getIdPerson())) {
                 if (voteSessionDTO.getEndDate().after(currentTime)) {
                     if (newVoteDTO.getFlVote().equals("S")) {
-                        rabbitMQService.sendMessage(RabbitMQConst.QUEUE_VOTE_YES,voteSessionDTO);
+                        //rabbitMQService.sendMessage(RabbitMQConst.QUEUE_VOTE_YES,voteSessionDTO);
                         voteSessionService.totalYes(voteSessionDTO.getId(), voteSessionDTO);
                     } else {
-                        voteSessionService.totalNo(voteSessionDTO.getId(), voteSessionDTO);
+                        //voteSessionService.totalNo(voteSessionDTO.getId(), voteSessionDTO);
                         rabbitMQService.sendMessage(RabbitMQConst.QUEUE_VOTE_NO,voteSessionDTO);
                     }
                     VoteDTO voteDTO = voteService.createVote(newVoteDTO);
-                    voteSessionService.totalVote(voteSessionDTO.getId(), voteSessionDTO);
+                    //voteSessionService.totalVote(voteSessionDTO.getId(), voteSessionDTO);
                     return new ResponseEntity<VoteDTO>(voteDTO, HttpStatus.CREATED);
                 }
 

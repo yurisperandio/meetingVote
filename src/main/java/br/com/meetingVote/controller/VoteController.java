@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/vote")
 @Api(value = "API Voto")
@@ -80,6 +81,7 @@ public class VoteController {
                     }
                     VoteDTO voteDTO = voteService.createVote(newVoteDTO);
                     voteSessionService.totalVote(voteSessionDTO.getId(), voteSessionDTO);
+                    rabbitMQService.sendMessage(RabbitMQConst.QUEUE_VOTE_TOTAL,voteSessionDTO);
                     return new ResponseEntity<VoteDTO>(voteDTO, HttpStatus.CREATED);
                 }
 

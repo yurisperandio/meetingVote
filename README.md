@@ -29,4 +29,14 @@ O Banco de dados utilizado no projeto é o MySQL
 
 ### Heroku
 
-A aplicação foi hospedada no Keroku, pela compatibilidade com aplicações Java e repositório para o MySQL, utilizando o ClearDB
+A aplicação foi hospedada no Keroku, pela compatibilidade com aplicações Java e repositório para o MySQL, utilizando o ClearDB, e RabbitMQ através do CloudAMQP.
+
+### RabbitMQ
+
+Executar o RabbitMQ localhost, é necessário baixar o Docker, e executar o arquivo a seguir, na pasta onde está o arquivo docker-compose.yml (Disponível neste projeto).
+Além disso, é necessário alterar os dados no application.properties, deixando as configurações para localhost descomentadas.
+Executar o seguinte comando:
+
+```shell
+docker-compose up -d
+```

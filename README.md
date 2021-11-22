@@ -40,3 +40,8 @@ Executar o seguinte comando:
 ```shell
 docker-compose up -d
 ```
+
+### Versionamento
+
+O versionamento foi realizado pelo header, pelo método accept, da seguinte forma: "application/vnd.meetingVote.app-v1.0+json".
+Foi realizado desta forma para abstrair da Url a versão da API, deixando nela apenas ideia original para a qual foi desenvolvida.
